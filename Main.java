@@ -6,7 +6,8 @@ import java.time.Instant;
 
 class Main{
     public static void main(String[] args) {
-   
+//    This part is for Read files
+  /*
         if (args.length==0) {
             System.out.println("No file exist.");
             return;
@@ -28,6 +29,10 @@ class Main{
     Duration duration = Duration.between(start, end);
 
     System.out.println(duration.toMillis()+" ms");
+    */
+
+
+    
     }
    
 }
