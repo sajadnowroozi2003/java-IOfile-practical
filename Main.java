@@ -1,8 +1,12 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Scanner;
 
 class Main{
     public static void main(String[] args) {
@@ -29,10 +33,26 @@ class Main{
     Duration duration = Duration.between(start, end);
 
     System.out.println(duration.toMillis()+" ms");
+
     */
+Instant start =Instant.now();
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("text.txt"))){
+       for(int i = 0;i<200;i++){
+         writer.write("Hello From AFghanistan  I am Sajad");
+        writer.newLine();
+        writer.write("Welcom to My Country.");
+          writer.newLine();
+
+       }
+
+    } catch (IOException e) {
+      System.out.println(e);
+    }
+    Instant end = Instant.now();
+    Duration duration = Duration.between(start, end);
+    System.out.println(duration.toMillis()+" ms");
 
 
-    
     }
    
 }
