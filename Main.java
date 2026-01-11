@@ -1,36 +1,33 @@
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Scanner;
-
-import javax.annotation.processing.Filer;
 
 class Main{
     public static void main(String[] args) {
+   
         if (args.length==0) {
-            System.out.println("No File Exist.");
+            System.out.println("No file exist.");
             return;
         }
-      Instant start =  Instant.now(); 
-try(Scanner scan = new Scanner(new FileReader(args[0]))){
+        Instant start = Instant.now();
+        try(BufferedReader reader = new BufferedReader(new FileReader(args[0]))){
 
-    while (scan.hasNextLine()) {
-          
-String line =scan.nextLine();
-System.out.println(line);
-    }
-
-
-
-}catch(IOException e){
-    System.out.println(e);
+            String line;
+            while ((line=reader.readLine())!=null) {
+                System.out.println(line);
+    
 }
-  Instant end = Instant.now(); 
-  
-  Duration duration =  Duration.between(start, end);
-  System.out.println(duration.toMillis()+" ms");
 
+        }catch(IOException e){
+            System.out.println(e);
+        }
+ Instant end = Instant.now();
+
+    Duration duration = Duration.between(start, end);
+
+    System.out.println(duration.toMillis()+" ms");
     }
+   
 }
