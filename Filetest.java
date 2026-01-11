@@ -1,7 +1,9 @@
 import java.util.Scanner;
-import java.io.File;
+import java.io.*;
 import java.time.Duration;
 import java.time.Instant;
+
+
 class Filetest{
     public static void main(String []args){
         System.out.println("Ali");
@@ -12,10 +14,10 @@ class Filetest{
         }
 
         Instant start = Instant.now();
-        try(Scanner scan= new Scanner(new File(args[0]))){
-            
-            while(scan.hasNextLine()){
-                String line= scan.nextLine();
+        try(BufferedReader reader= new BufferedReader(new FileReader(args[0]))){
+            String line;
+            while((line=reader.readLine())!=null){
+               
                 System.out.println(line);
             }
 
